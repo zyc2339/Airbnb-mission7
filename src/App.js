@@ -1,7 +1,7 @@
 import "./App.css";
-import Home from "./components/Home";
+import Home from "./components/HomePage/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import FilterPage from "./components/FilterPage";
+import FilterPage from "./components/FilterPage/FilterPage";
 function App() {
   return (
     <div className="App">
