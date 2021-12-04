@@ -56,16 +56,8 @@ export default function Home() {
         </div>
         <div className="section-container">
           <div
-            className={showLeft === false ? "section" : "active-button-left"}
+            className={showLeft === false ? "section-2" : "active-button-right"}
           >
-            <div className="filter-description">
-              <h2>Neighbourhoods</h2>
-              <p>
-                Our residential property management division extends its
-                services across the entire Auckland region- from Orewa to
-                Pukekohe and Waiheke Island.
-              </p>
-            </div>
             <ImageCard
               image1="image/section2-1.png"
               image2="image/section2-2.png"
@@ -77,7 +69,15 @@ export default function Home() {
               p4="Northshore"
             />
 
-            <button className="arrow-right" onClick={showLeftButton}>
+            <div className="filter-description">
+              <h2>Find all types of properties. </h2>
+              <p>
+                Our core focus is client satisfation and we are proud of our
+                reputation being built on delivering exceptional personal
+                service to our tenants.
+              </p>
+            </div>
+            <button className="arrow-left" onClick={showLeftButton}>
               〉
             </button>
           </div>
@@ -87,11 +87,11 @@ export default function Home() {
             className={showLeft === false ? "section" : "active-button-left"}
           >
             <div className="filter-description">
-              <h2>Neighbourhoods</h2>
+              <h2>Featured Auckland properties. </h2>
               <p>
-                Our residential property management division extends its
-                services across the entire Auckland region- from Orewa to
-                Pukekohe and Waiheke Island.
+                View some of the best homes and deals in the Auckland area. Hand
+                selected by our team of over 20 specialist rental property
+                managers.
               </p>
             </div>
             <ImageCard
@@ -115,11 +115,10 @@ export default function Home() {
             className={showLeft === false ? "section" : "active-button-left"}
           >
             <div className="filter-description">
-              <h2>Neighbourhoods</h2>
+              <h2>Popular Amenities. </h2>
               <p>
-                Our residential property management division extends its
-                services across the entire Auckland region- from Orewa to
-                Pukekohe and Waiheke Island.
+                Our portfolio includes more than 2400 managed rental properties.
+                With that in mind we can find exactly what your looking for.
               </p>
             </div>
             <ImageCard
@@ -143,11 +142,11 @@ export default function Home() {
             className={showLeft === false ? "section" : "active-button-left"}
           >
             <div className="filter-description">
-              <h2>Neighbourhoods</h2>
+              <h2>Tenant Info Center </h2>
               <p>
-                Our residential property management division extends its
-                services across the entire Auckland region- from Orewa to
-                Pukekohe and Waiheke Island.
+                The Property Management Tenant Info Centre is one of the many
+                ways we are able to deliver resourceful information and share
+                valuable tips to help you while you rent one of our properties.
               </p>
             </div>
             <ImageCard
