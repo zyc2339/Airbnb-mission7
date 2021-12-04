@@ -44,9 +44,9 @@ export default function Home() {
               image3="image/section1-3.png"
               image4="image/section1-4.png"
               p1="Northshore"
-              p2="Northshore"
-              p3="Northshore"
-              p4="Northshore"
+              p2="Central"
+              p3="East Auckland"
+              p4="CBD"
             />
 
             <button className="arrow-right" onClick={showLeftButton}>
@@ -59,14 +59,15 @@ export default function Home() {
             className={showLeft === false ? "section-2" : "active-button-right"}
           >
             <ImageCard
+              className="section-111"
               image1="image/section2-1.png"
               image2="image/section2-2.png"
               image3="image/section2-3.png"
               image4="image/section2-4.png"
-              p1="Northshore"
-              p2="Northshore"
-              p3="Northshore"
-              p4="Northshore"
+              p1="Units"
+              p2="Terraced Homes"
+              p3="Apartments"
+              p4="Houses"
             />
 
             <div className="filter-description">
@@ -99,10 +100,10 @@ export default function Home() {
               image2="image/section3-2.png"
               image3="image/section3-3.png"
               image4="image/section3-4.png"
-              p1="Northshore"
-              p2="Northshore"
-              p3="Northshore"
-              p4="Northshore"
+              p1="Titirangi"
+              p2="Kohimarama"
+              p3="Hobsonville Point"
+              p4="Long Bay"
             />
 
             <button className="arrow-right" onClick={showLeftButton}>
@@ -112,8 +113,19 @@ export default function Home() {
         </div>
         <div className="section-container">
           <div
-            className={showLeft === false ? "section" : "active-button-left"}
+            className={showLeft === false ? "section-2" : "active-button-right"}
           >
+            <ImageCard
+              className="section-text-end"
+              image1="image/section4-1.png"
+              image2="image/section4-2.png"
+              image3="image/section4-3.png"
+              image4="image/section4-4.png"
+              p1="Washer"
+              p2="Parking"
+              p3="Pet Friendly"
+              p4="Furnished"
+            />
             <div className="filter-description">
               <h2>Popular Amenities. </h2>
               <p>
@@ -121,18 +133,7 @@ export default function Home() {
                 With that in mind we can find exactly what your looking for.
               </p>
             </div>
-            <ImageCard
-              image1="image/section4-1.png"
-              image2="image/section4-2.png"
-              image3="image/section4-3.png"
-              image4="image/section4-4.png"
-              p1="Northshore"
-              p2="Northshore"
-              p3="Northshore"
-              p4="Northshore"
-            />
-
-            <button className="arrow-right" onClick={showLeftButton}>
+            <button className="arrow-left" onClick={showLeftButton}>
               〉
             </button>
           </div>
@@ -154,10 +155,14 @@ export default function Home() {
               image2="image/section5-2.png"
               image3="image/section5-3.png"
               image4="image/section5-4.png"
-              p1="Northshore"
-              p2="Northshore"
-              p3="Northshore"
-              p4="Northshore"
+              p1="Tenancy
+              Handbook"
+              p2="Our 
+              Services"
+              p3="Useful
+              Resources"
+              p4="Inspection
+              Guide"
             />
 
             <button className="arrow-right" onClick={showLeftButton}>

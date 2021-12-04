@@ -135,6 +135,15 @@
   height: 21rem;
 }
 
+.img-grid h4 {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+
+.section-2 h4 {
+  text-align: end;
+}
+
 .container-img {
   width: 100%;
   height: 19rem;
@@ -143,7 +152,7 @@
 
 .filter-description p {
   padding: 1rem;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 .filter-description h2 {
   padding: 1rem;
