@@ -110,7 +110,7 @@ export default function Mainfilter() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3131/results", {
+    fetch("https://sleepy-brook-55036.herokuapp.com/results", {
       method: "GET",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
