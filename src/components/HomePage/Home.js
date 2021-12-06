@@ -1,7 +1,7 @@
 import Header from "../Header";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 import ImageCard from "./ImageCard";
 import ImageCard2 from "./ImageCard-2";
 
