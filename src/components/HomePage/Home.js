@@ -27,86 +27,98 @@ export default function Home() {
         </div>
       </header>
       <div className="home-container">
-        <div className="section">
-          <div className="filter-description">
-            <h2>Neighbourhoods</h2>
-            <p>
-              Our residential property management division extends its services
-              across the entire Auckland region- from Orewa to Pukekohe and
-              Waiheke Island.
-            </p>
+        <div className="container-hr">
+          <div className="section">
+            <div className="filter-description">
+              <h2>Neighbourhoods</h2>
+              <p>
+                Our residential property management division extends its
+                services across the entire Auckland region- from Orewa to
+                Pukekohe and Waiheke Island.
+              </p>
+            </div>
+            <ImageCard
+              image1="image/section1-1.png"
+              image2="image/section1-2.png"
+              image3="image/section1-3.png"
+              image4="image/section1-4.png"
+              p1="Northshore"
+              p2="Central"
+              p3="East Auckland"
+              p4="CBD"
+            />
           </div>
-          <ImageCard
-            image1="image/section1-1.png"
-            image2="image/section1-2.png"
-            image3="image/section1-3.png"
-            image4="image/section1-4.png"
-            p1="Northshore"
-            p2="Central"
-            p3="East Auckland"
-            p4="CBD"
-          />
+          <hr></hr>
         </div>
-        <div className="section-2">
-          <ImageCard2
-            image1="image/section2-1.png"
-            image2="image/section2-2.png"
-            image3="image/section2-3.png"
-            image4="image/section2-4.png"
-            p1="Units"
-            p2="Terraced Homes"
-            p3="Apartments"
-            p4="Houses"
-          />
 
-          <div className="filter-description">
-            <h2>Find all types of properties. </h2>
-            <p>
-              Our core focus is client satisfation and we are proud of our
-              reputation being built on delivering exceptional personal service
-              to our tenants.
-            </p>
+        <div className="container-hr">
+          <div className="section-2">
+            <ImageCard2
+              image1="image/section2-1.png"
+              image2="image/section2-2.png"
+              image3="image/section2-3.png"
+              image4="image/section2-4.png"
+              p1="Units"
+              p2="Terraced Homes"
+              p3="Apartments"
+              p4="Houses"
+            />
+            <div className="filter-description">
+              <h2>Find all types of properties. </h2>
+              <p>
+                Our core focus is client satisfation and we are proud of our
+                reputation being built on delivering exceptional personal
+                service to our tenants.
+              </p>
+            </div>
           </div>
+          <hr></hr>
         </div>
-        <div className="section">
-          <div className="filter-description">
-            <h2>Featured Auckland properties. </h2>
-            <p>
-              View some of the best homes and deals in the Auckland area. Hand
-              selected by our team of over 20 specialist rental property
-              managers.
-            </p>
+        <div className="container-hr">
+          <div className="section">
+            <div className="filter-description">
+              <h2>Featured Auckland properties. </h2>
+              <p>
+                View some of the best homes and deals in the Auckland area. Hand
+                selected by our team of over 20 specialist rental property
+                managers.
+              </p>
+            </div>
+            <ImageCard
+              image1="image/section3-1.png"
+              image2="image/section3-2.png"
+              image3="image/section3-3.png"
+              image4="image/section3-4.png"
+              p1="Titirangi"
+              p2="Kohimarama"
+              p3="Hobsonville Point"
+              p4="Long Bay"
+            />
           </div>
-          <ImageCard
-            image1="image/section3-1.png"
-            image2="image/section3-2.png"
-            image3="image/section3-3.png"
-            image4="image/section3-4.png"
-            p1="Titirangi"
-            p2="Kohimarama"
-            p3="Hobsonville Point"
-            p4="Long Bay"
-          />
+          <hr></hr>
         </div>
-        <div className="section-2">
-          <ImageCard2
-            className="section-text-end"
-            image1="image/section4-1.png"
-            image2="image/section4-2.png"
-            image3="image/section4-3.png"
-            image4="image/section4-4.png"
-            p1="Washer"
-            p2="Parking"
-            p3="Pet Friendly"
-            p4="Furnished"
-          />
-          <div className="filter-description">
-            <h2>Popular Amenities. </h2>
-            <p>
-              Our portfolio includes more than 2400 managed rental properties.
-              With that in mind we can find exactly what your looking for.
-            </p>
+        <div className="container-hr">
+          <div className="section-2">
+            <ImageCard2
+              className="section-text-end"
+              image1="image/section4-1.png"
+              image2="image/section4-2.png"
+              image3="image/section4-3.png"
+              image4="image/section4-4.png"
+              p1="Washer"
+              p2="Parking"
+              p3="Pet Friendly"
+              p4="Furnished"
+            />
+            <div className="filter-description">
+              <h2>Popular Amenities. </h2>
+              <p>
+                Our portfolio includes more than 2400 managed rental properties.
+                With that in mind we can find exactly what your looking for.
+              </p>
+            </div>
           </div>
+          <hr></hr>
         </div>
         <div className="section">
           <div className="filter-description">
