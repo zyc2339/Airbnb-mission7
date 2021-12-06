@@ -227,3 +227,45 @@ hr {
   border-radius: 20px;
   padding: 0.1rem;
 }
+
+/* ==============home filter================== */
+.home-filter {
+  display: flex;
+  background-color: white;
+  margin: 1rem auto;
+  height: 3rem;
+  border-radius: 20px;
+  align-items: center;
+  max-width: 48rem;
+  justify-content: center;
+}
+
+.home-filter-container {
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.home-filter-container select {
+  margin-right: 1.5rem;
+  padding: 0 1rem;
+  border: none;
+  border-left: rgb(143, 139, 139) solid 2px;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.home-filter-container .suburb {
+  border: none;
+}
+
+.home-filter-container select option {
+  border: none;
+}
+
+.home-filter-container button {
+  margin: 0;
+  padding: 0.5rem 1.9rem;
+}

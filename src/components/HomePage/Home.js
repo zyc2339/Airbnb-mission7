@@ -1,9 +1,10 @@
 import Header from "../Header";
 import Footer from "../Footer";
-import { Link } from "react-router-dom";
+
 // import { useState } from "react";
 import ImageCard from "./ImageCard";
 import ImageCard2 from "./ImageCard-2";
+import FilterInHomePage from "./FilterInHomePage";
 
 export default function Home() {
   // const [showLeft, setShowLeft] = useState(false);
@@ -21,9 +22,10 @@ export default function Home() {
         <div className="filter-zone">
           <h1>Find a home that fits your needs</h1>
 
-          <Link className="link" to="/find">
+          {/* <Link className="link" to="/find">
             <button className="btn btn-find">Find your home</button>
-          </Link>
+          </Link> */}
+          <FilterInHomePage />
         </div>
       </header>
       <div className="home-container">
