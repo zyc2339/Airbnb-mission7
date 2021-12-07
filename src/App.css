@@ -48,7 +48,7 @@
   color: #c12141;
 }
 
-.filter-zone button {
+/* .filter-zone button {
   font-weight: bold;
   border-radius: 19px;
   margin-top: 0.7rem;
@@ -57,7 +57,7 @@
   color: aliceblue;
   background-color: #c12141;
   font-family: "Roboto", sans-serif;
-}
+} */
 /* ------------home section------------------------ */
 .home-container {
   margin-top: 23rem;
@@ -265,7 +265,15 @@ hr {
   border: none;
 }
 
-.home-filter-container button {
+.home-filter-container .btn-search {
   margin: 0;
   padding: 0.5rem 1.9rem;
+  font-weight: bold;
+  border-radius: 19px;
+  border: none;
+  color: aliceblue;
+  background-color: #c12141;
+  font-family: "Roboto", sans-serif;
 }
+
+/* ========mui  ======= */
