@@ -1,12 +1,12 @@
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Popper, Box, Chip } from "@mui/material";
+import { Popper } from "@mui/material";
 import { theme } from "./theme";
 import { suburb, price, homeType, more } from "./FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
 const PopperMy = function (props) {
   return <Popper {...props} style={{ width: 228, height: 380 }} />;
@@ -35,10 +35,6 @@ const ListOther = function (props) {
 };
 
 export default function FilterInHomePage() {
-  const [value, setValue] = useState([]);
-  const onDelete = (title) => () => {
-    setValue((value) => value.filter((v) => v.title !== title));
-  };
   return (
     <ThemeProvider theme={theme}>
       <div className="home-filter">
