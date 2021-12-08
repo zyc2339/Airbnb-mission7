@@ -1,11 +1,12 @@
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Popper } from "@mui/material";
+import { Popper, Box, Chip } from "@mui/material";
 import { theme } from "./theme";
 import { suburb, price, homeType, more } from "./FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const PopperMy = function (props) {
   return <Popper {...props} style={{ width: 228, height: 380 }} />;
@@ -34,6 +35,10 @@ const ListOther = function (props) {
 };
 
 export default function FilterInHomePage() {
+  const [value, setValue] = useState([]);
+  const onDelete = (title) => () => {
+    setValue((value) => value.filter((v) => v.title !== title));
+  };
   return (
     <ThemeProvider theme={theme}>
       <div className="home-filter">
@@ -43,21 +48,15 @@ export default function FilterInHomePage() {
             size="small"
             id="filter-checkboxes-suburb"
             options={suburb}
-            // open="true"
-            // openOnFocus={true}
             disableCloseOnSelect
             limitTags={3}
             PopperComponent={PopperMy}
             ListboxComponent={ListSuburb}
+            renderTags={() => null}
             getOptionLabel={(option) => option.label}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
-                <Checkbox
-                  // icon={icon}
-                  // checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                />
+                <Checkbox style={{ marginRight: 8 }} checked={selected} />
                 {option.label}
               </li>
             )}
@@ -82,6 +81,7 @@ export default function FilterInHomePage() {
             PopperComponent={PopperMy}
             ListboxComponent={ListOther}
             getOptionLabel={(option) => option.label}
+            renderTags={() => null}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
                 <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -91,7 +91,10 @@ export default function FilterInHomePage() {
             renderInput={(params) => (
               <TextField
                 {...params}
-                style={{ width: "8rem" }}
+                style={{
+                  width: "8rem",
+                  borderLeft: "rgb(143, 139, 139) solid 2px",
+                }}
                 variant="outlined"
                 placeholder="Price"
               />
@@ -108,6 +111,7 @@ export default function FilterInHomePage() {
             PopperComponent={PopperMy}
             ListboxComponent={ListOther}
             getOptionLabel={(option) => option.label}
+            renderTags={() => null}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
                 <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -117,7 +121,10 @@ export default function FilterInHomePage() {
             renderInput={(params) => (
               <TextField
                 {...params}
-                style={{ width: "8rem" }}
+                style={{
+                  width: "8rem",
+                  borderLeft: "rgb(143, 139, 139) solid 2px",
+                }}
                 variant="outlined"
                 placeholder="Home Type"
               />
@@ -134,6 +141,7 @@ export default function FilterInHomePage() {
             PopperComponent={PopperMy}
             ListboxComponent={ListOther}
             getOptionLabel={(option) => option.label}
+            renderTags={() => null}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
                 <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -143,7 +151,10 @@ export default function FilterInHomePage() {
             renderInput={(params) => (
               <TextField
                 {...params}
-                style={{ width: "8rem" }}
+                style={{
+                  width: "8rem",
+                  borderLeft: "rgb(143, 139, 139) solid 2px",
+                }}
                 variant="outlined"
                 placeholder="Bed & Bath"
               />
@@ -160,6 +171,7 @@ export default function FilterInHomePage() {
             PopperComponent={PopperMy}
             ListboxComponent={ListOther}
             getOptionLabel={(option) => option.label}
+            renderTags={() => null}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
                 <Checkbox style={{ marginRight: 8 }} checked={selected} />
@@ -169,7 +181,10 @@ export default function FilterInHomePage() {
             renderInput={(params) => (
               <TextField
                 {...params}
-                style={{ width: "6rem" }}
+                style={{
+                  width: "6rem",
+                  borderLeft: "rgb(143, 139, 139) solid 2px",
+                }}
                 variant="outlined"
                 placeholder="More"
               />

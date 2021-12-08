@@ -3,7 +3,8 @@ import { Popper } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-
+import { Box, Chip } from "@mui/material/";
+import { useState } from "react";
 const font = '"Roboto", sans-serif';
 
 export const theme = createTheme({
@@ -17,14 +18,6 @@ export const theme = createTheme({
   },
 
   components: {
-    // Name of the component
-    // MuiInputBase: {
-    //   styleOverrides: {
-    //     sizeSmall: {
-    //       padding: "10px",
-    //     },
-    //   },
-    // },
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
@@ -32,7 +25,8 @@ export const theme = createTheme({
         },
         root: {
           fontFamily: font,
-          display: "block",
+          maxHeight: "15rem",
+          //   borderRight: "1px solid black",
         },
       },
     },
@@ -46,7 +40,7 @@ export const theme = createTheme({
     MuiAutocomplete: {
       styleOverrides: {
         root: {
-          //   padding: "5rem 0",
+          maxHeight: "15rem",
         },
         popper: {
           height: "500px",
@@ -74,6 +68,9 @@ export const theme = createTheme({
         input: {
           fontWeight: "bold",
         },
+        tag: {
+          height: "1rem",
+        },
       },
     },
     MuiCheckbox: {
@@ -81,7 +78,6 @@ export const theme = createTheme({
         root: {
           padding: "1px",
           left: "10rem",
-          //   color: "black",
         },
       },
     },
@@ -90,6 +86,8 @@ export const theme = createTheme({
         label: {
           fontFamily: font,
           fontSize: "0.5rem",
+          fontWeight: "bold",
+          //   maxHeight: "1rem",
         },
       },
     },
@@ -125,25 +123,31 @@ const suburb = [
   { label: "Wellsford", value: 12 },
 ];
 export default function ThemePractice() {
+  const [value, setValue] = useState([]);
+  const onDelete = (title) => () => {
+    setValue((value) => value.filter((v) => v.title !== title));
+  };
   //   const classes = useStyles();
   return (
     <div className="theme-background">
       <ThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <div className="home-filter">
-            <div className="home-filter-container">
+        <div className="home-filter">
+          <div className="home-filter-container">
+            <Box>
               <Autocomplete
                 multiple
                 // limitTags={3}
                 size="small"
                 id="filter-checkboxes-suburb"
                 options={suburb}
-                open="true"
+                // open="true"
                 // openOnFocus={true}
                 disableCloseOnSelect
                 PopperComponent={PopperMy}
                 ListboxComponent={ListMy}
                 getOptionLabel={(option) => option.label}
+                value={value}
+                onChange={(e, newValue) => setValue(newValue)}
                 renderOption={(props, option, { selected }) => (
                   <li {...props}>
                     <Checkbox
@@ -155,6 +159,7 @@ export default function ThemePractice() {
                     {option.label}
                   </li>
                 )}
+                renderTags={() => null}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -163,10 +168,25 @@ export default function ThemePractice() {
                     //   InputProps={{ className: "textfield__label" }}
                   />
                 )}
-              />
-            </div>
+              />{" "}
+              <Box
+                mt={3}
+                sx={{
+                  "& > :not(:last-child)": { mr: 1 },
+                  "& > *": { mr: 1 },
+                }}
+              >
+                {value.map((v) => (
+                  <Chip
+                    key={v.label}
+                    label={v.label}
+                    onDelete={onDelete(v.label)}
+                  />
+                ))}
+              </Box>
+            </Box>
           </div>
-        </ThemeProvider>
+        </div>
       </ThemeProvider>
     </div>
   );

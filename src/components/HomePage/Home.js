@@ -3,18 +3,10 @@ import Footer from "../Footer";
 
 // import { useState } from "react";
 import ImageCard from "./ImageCard";
-import ImageCard2 from "./ImageCard-2";
+
 import FilterInHomePage from "./FilterInHomePage";
 
 export default function Home() {
-  // const [showLeft, setShowLeft] = useState(false);
-  //control the container move to left or right
-  // const showLeftButton = () => {
-  //   if (showLeft === true) {
-  //     setShowLeft(false);
-  //   } else setShowLeft(true);
-  // };
-
   return (
     <div className="main">
       <header className="header">
@@ -28,7 +20,7 @@ export default function Home() {
         <div className="container-hr">
           <div className="section">
             <div className="filter-description">
-              <h2>Neighbourhoods</h2>
+              <h2> Find the right Neighbourhoods</h2>
               <p>
                 Our residential property management division extends its
                 services across the entire Auckland region- from Orewa to
@@ -48,11 +40,32 @@ export default function Home() {
           </div>
           <hr></hr>
         </div>
-
         <div className="container-hr">
           <div className="section">
             <div className="filter-description">
-              <h2>Find all types of properties. </h2>
+              <h2>Popular Amenities. </h2>
+              <p>
+                Our portfolio includes more than 2400 managed rental properties.
+                With that in mind we can find exactly what your looking for.
+              </p>
+            </div>
+            <ImageCard
+              image4="image/section4-1.png"
+              image3="image/section4-2.png"
+              image2="image/section4-3.png"
+              image1="image/section4-4.png"
+              p4="Washer"
+              p3="Parking"
+              p2="Pet Friendly"
+              p1="Furnished"
+            />
+          </div>
+          <hr></hr>
+        </div>
+        <div className="container-hr">
+          <div className="section">
+            <div className="filter-description">
+              <h2>Find all types of homes. </h2>
               <p>
                 Our core focus is client satisfation and we are proud of our
                 reputation being built on delivering exceptional personal
@@ -60,14 +73,14 @@ export default function Home() {
               </p>
             </div>
             <ImageCard
-              image1="image/section2-1.png"
-              image2="image/section2-2.png"
+              image4="image/section2-1.png"
               image3="image/section2-3.png"
-              image4="image/section2-4.png"
-              p1="Units"
-              p2="Terraced Homes"
-              p3="Apartments"
-              p4="Houses"
+              image2="image/section2-2.png"
+              image1="image/section2-4.png"
+              p4="Units"
+              p3="Terraced Homes"
+              p2="Apartments"
+              p1="Houses"
             />
           </div>
           <hr></hr>
@@ -95,28 +108,7 @@ export default function Home() {
           </div>
           <hr></hr>
         </div>
-        <div className="container-hr">
-          <div className="section">
-            <div className="filter-description">
-              <h2>Popular Amenities. </h2>
-              <p>
-                Our portfolio includes more than 2400 managed rental properties.
-                With that in mind we can find exactly what your looking for.
-              </p>
-            </div>
-            <ImageCard
-              image1="image/section4-1.png"
-              image2="image/section4-2.png"
-              image3="image/section4-3.png"
-              image4="image/section4-4.png"
-              p1="Washer"
-              p2="Parking"
-              p3="Pet Friendly"
-              p4="Furnished"
-            />
-          </div>
-          <hr></hr>
-        </div>
+
         <div className="section">
           <div className="filter-description">
             <h2>Tenant Info Center </h2>
