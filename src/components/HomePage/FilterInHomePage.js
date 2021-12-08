@@ -6,7 +6,7 @@ import { theme } from "./theme";
 import { suburb, price, homeType, more } from "./FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
 const PopperMy = function (props) {
   return <Popper {...props} style={{ width: 228, height: 380 }} />;
@@ -35,6 +35,7 @@ const ListOther = function (props) {
 };
 
 export default function FilterInHomePage() {
+<<<<<<< HEAD
   // const [value, setValue] = useState([]);
 
   const [suburbValue, setsuburb] = useState([]);
@@ -84,6 +85,8 @@ export default function FilterInHomePage() {
       );
     }
   };
+=======
+>>>>>>> main
   return (
     <ThemeProvider theme={theme}>
       <div className="home-filter">

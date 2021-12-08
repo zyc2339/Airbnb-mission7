@@ -26,6 +26,7 @@ export default function Home() {
                 services across the entire Auckland region- from Orewa to
                 Pukekohe and Waiheke Island.
               </p>
+              <p>Click on an area and discover neighbourhood insights</p>
             </div>
             <ImageCard
               image1="image/section1-1.png"
@@ -48,6 +49,7 @@ export default function Home() {
                 Our portfolio includes more than 2400 managed rental properties.
                 With that in mind we can find exactly what your looking for.
               </p>
+              <p>Click your preferred amenity and view matching properties.</p>
             </div>
             <ImageCard
               image4="image/section4-1.png"
@@ -70,6 +72,9 @@ export default function Home() {
                 Our core focus is client satisfation and we are proud of our
                 reputation being built on delivering exceptional personal
                 service to our tenants.
+              </p>
+              <p>
+                Click your preferred housing type and view matching properties.
               </p>
             </div>
             <ImageCard
@@ -94,6 +99,7 @@ export default function Home() {
                 selected by our team of over 20 specialist rental property
                 managers.
               </p>
+              <p>Click on a home and browse through our featured properties</p>
             </div>
             <ImageCard
               image1="image/section3-1.png"
