@@ -1,7 +1,7 @@
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Popper, Box, Chip } from "@mui/material";
+import { Popper } from "@mui/material";
 import { theme } from "./theme";
 import { suburb, price, homeType, more } from "./FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
@@ -35,9 +35,54 @@ const ListOther = function (props) {
 };
 
 export default function FilterInHomePage() {
-  const [value, setValue] = useState([]);
-  const onDelete = (title) => () => {
-    setValue((value) => value.filter((v) => v.title !== title));
+  // const [value, setValue] = useState([]);
+
+  const [suburbValue, setsuburb] = useState([]);
+
+  const [backendresult, setbackendresult] = useState([]);
+
+  const [filteredresult, setfilteredresult] = useState([]);
+
+  const [finalresult, setfinalresult] = useState([]);
+
+  const handleChangeSuburb = (event) => {
+    // (e) => console.log(e.target.value)
+    const {
+      target: { value },
+    } = event;
+
+    console.log(value);
+    setsuburb(
+      // On autofill we get a the stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+    console.log(suburbValue);
+
+    if (event.target.value.includes("Albany")) {
+      setfilteredresult(
+        backendresult.filter((listing) => listing.suburb === "Albany")
+      );
+    } else if (event.target.value.includes("Epsom")) {
+      setfilteredresult(
+        backendresult.filter((listing) => listing.suburb === "Epsom")
+      );
+    } else if (event.target.value.includes("Parnell")) {
+      setfilteredresult(
+        backendresult.filter((listing) => listing.suburb === "Parnell")
+      );
+    } else if (event.target.value.includes("CBD")) {
+      setfilteredresult(
+        backendresult.filter((listing) => listing.suburb === "CBD")
+      );
+    } else if (event.target.value.includes("Howick")) {
+      setfilteredresult(
+        backendresult.filter((listing) => listing.suburb === "Howick")
+      );
+    } else if (event.target.value.includes("Flat Bush")) {
+      setfilteredresult(
+        backendresult.filter((listing) => listing.suburb === "Flat Bush")
+      );
+    }
   };
   return (
     <ThemeProvider theme={theme}>
@@ -50,13 +95,19 @@ export default function FilterInHomePage() {
             options={suburb}
             disableCloseOnSelect
             limitTags={3}
+            value={suburbValue}
+            onChange={handleChangeSuburb}
             PopperComponent={PopperMy}
             ListboxComponent={ListSuburb}
             renderTags={() => null}
             getOptionLabel={(option) => option.label}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
-                <Checkbox style={{ marginRight: 8 }} checked={selected} />
+                <Checkbox
+                  style={{ marginRight: 8 }}
+                  checked={selected}
+                  value={option.label}
+                />
                 {option.label}
               </li>
             )}

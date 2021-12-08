@@ -5,12 +5,10 @@ export default function ImageCard(props) {
 
   const goRight = () => {
     setShowMore("img-container135");
-    console.log(showMore);
   };
 
   const goBack = () => {
     setShowMore("img-container");
-    console.log(showMore);
   };
 
   return (
