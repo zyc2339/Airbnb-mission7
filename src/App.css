@@ -112,7 +112,7 @@ hr {
 }
 /* ---------------section 2 and 4 */
 
-.section-2 {
+/* .section-2 {
   width: 100%;
   display: grid;
   grid-template-columns: 4fr 1fr;
@@ -143,7 +143,7 @@ hr {
 .img-container24:hover {
   position: relative;
   left: 3rem;
-}
+} */
 
 /* ======image card============= */
 .img-grid {
@@ -236,7 +236,7 @@ hr {
   height: 3rem;
   border-radius: 20px;
   align-items: center;
-  max-width: 48rem;
+  max-width: 53rem;
   justify-content: center;
 }
 
@@ -277,3 +277,7 @@ hr {
 }
 
 /* ========mui  ======= */
+.theme-background {
+  background-color: rgb(186, 138, 231);
+  height: 1000px;
+}

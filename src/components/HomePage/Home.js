@@ -21,10 +21,6 @@ export default function Home() {
         <Header />
         <div className="filter-zone">
           <h1>Find a home that fits your needs</h1>
-
-          {/* <Link className="link" to="/find">
-            <button className="btn btn-find">Find your home</button>
-          </Link> */}
           <FilterInHomePage />
         </div>
       </header>
@@ -54,8 +50,16 @@ export default function Home() {
         </div>
 
         <div className="container-hr">
-          <div className="section-2">
-            <ImageCard2
+          <div className="section">
+            <div className="filter-description">
+              <h2>Find all types of properties. </h2>
+              <p>
+                Our core focus is client satisfation and we are proud of our
+                reputation being built on delivering exceptional personal
+                service to our tenants.
+              </p>
+            </div>
+            <ImageCard
               image1="image/section2-1.png"
               image2="image/section2-2.png"
               image3="image/section2-3.png"
@@ -65,14 +69,6 @@ export default function Home() {
               p3="Apartments"
               p4="Houses"
             />
-            <div className="filter-description">
-              <h2>Find all types of properties. </h2>
-              <p>
-                Our core focus is client satisfation and we are proud of our
-                reputation being built on delivering exceptional personal
-                service to our tenants.
-              </p>
-            </div>
           </div>
           <hr></hr>
         </div>
@@ -100,9 +96,15 @@ export default function Home() {
           <hr></hr>
         </div>
         <div className="container-hr">
-          <div className="section-2">
-            <ImageCard2
-              className="section-text-end"
+          <div className="section">
+            <div className="filter-description">
+              <h2>Popular Amenities. </h2>
+              <p>
+                Our portfolio includes more than 2400 managed rental properties.
+                With that in mind we can find exactly what your looking for.
+              </p>
+            </div>
+            <ImageCard
               image1="image/section4-1.png"
               image2="image/section4-2.png"
               image3="image/section4-3.png"
@@ -112,13 +114,6 @@ export default function Home() {
               p3="Pet Friendly"
               p4="Furnished"
             />
-            <div className="filter-description">
-              <h2>Popular Amenities. </h2>
-              <p>
-                Our portfolio includes more than 2400 managed rental properties.
-                With that in mind we can find exactly what your looking for.
-              </p>
-            </div>
           </div>
           <hr></hr>
         </div>

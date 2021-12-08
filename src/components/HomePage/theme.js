@@ -4,66 +4,92 @@ import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
+const font = '"Roboto", sans-serif';
+
 export const theme = createTheme({
-  //   palette: {
-  //     type: "light",
-  //     primary: {
-  //       main: "#ffffff",
-  //     },
-  //     secondary: {
-  //       main: "#c02141",
-  //     },
-  //   },
+  palette: {
+    primary: {
+      main: "#000000",
+    },
+    secondary: {
+      main: "#c02141",
+    },
+  },
 
   components: {
     // Name of the component
-
+    // MuiInputBase: {
+    //   styleOverrides: {
+    //     sizeSmall: {
+    //       padding: "10px",
+    //     },
+    //   },
+    // },
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
           border: "none",
         },
         root: {
-          width: "8rem",
+          fontFamily: font,
+          display: "block",
         },
       },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
-          fontFamily: "Roboto",
-
           borderRadius: "20px",
         },
       },
     },
     MuiAutocomplete: {
       styleOverrides: {
+        root: {
+          //   padding: "5rem 0",
+        },
         popper: {
-          top: "2rem",
-          backgroundColor: "yellow",
+          height: "500px",
         },
         listbox: {
-          //   border: "1px solid green",
+          width: "100%",
         },
         paper: {
-          backgroundColor: "red",
           fontSize: "1rem",
           lineHeight: "1",
-          height: "300px",
+          minHeight: "30px",
+          width: "228px",
           //   fontWeight: "bold",
         },
         option: {
-          padding: "0.8rem 0",
-          maxHeight: "20px",
+          fontFamily: font,
+          fontWeight: "bold",
+          paddingLeft: "1px",
+          maxHeight: "30px",
+          fontSize: "0.8rem",
+          position: "relative",
+          right: "1rem",
+          maxWidth: "16rem",
+        },
+        input: {
+          fontWeight: "bold",
         },
       },
     },
     MuiCheckbox: {
       styleOverrides: {
         root: {
-          padding: 0,
-          left: "12.5rem",
+          padding: "1px",
+          left: "10rem",
+          //   color: "black",
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        label: {
+          fontFamily: font,
+          fontSize: "0.5rem",
         },
       },
     },
@@ -71,15 +97,18 @@ export const theme = createTheme({
 });
 
 const PopperMy = function (props) {
-  return (
-    <Popper
-      {...props}
-      style={{ width: 250, height: 500, position: "relative" }}
-    />
-  );
+  return <Popper {...props} style={{ width: 228, height: 380 }} />;
 };
 const ListMy = function (props) {
-  return <ul {...props} style={{ width: 250, height: 350 }} />;
+  return (
+    <ul
+      {...props}
+      style={{
+        width: 228,
+        minHeight: 380,
+      }}
+    />
+  );
 };
 const suburb = [
   { label: "Auckland Districts: Any  ", value: 1 },
@@ -98,32 +127,46 @@ const suburb = [
 export default function ThemePractice() {
   //   const classes = useStyles();
   return (
-    <div>
+    <div className="theme-background">
       <ThemeProvider theme={theme}>
-        <Autocomplete
-          size="small"
-          id="filter-checkboxes-suburb"
-          options={suburb}
-          open="true"
-          disableCloseOnSelect
-          PopperComponent={PopperMy}
-          ListboxComponent={ListMy}
-          getOptionLabel={(option) => option.label}
-          renderOption={(props, option, { selected }) => (
-            <li {...props}>
-              <Checkbox
-                // icon={icon}
-                // checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
+        <ThemeProvider theme={theme}>
+          <div className="home-filter">
+            <div className="home-filter-container">
+              <Autocomplete
+                multiple
+                // limitTags={3}
+                size="small"
+                id="filter-checkboxes-suburb"
+                options={suburb}
+                open="true"
+                // openOnFocus={true}
+                disableCloseOnSelect
+                PopperComponent={PopperMy}
+                ListboxComponent={ListMy}
+                getOptionLabel={(option) => option.label}
+                renderOption={(props, option, { selected }) => (
+                  <li {...props}>
+                    <Checkbox
+                      // icon={icon}
+                      // checkedIcon={checkedIcon}
+                      style={{ marginRight: 8 }}
+                      checked={selected}
+                    />
+                    {option.label}
+                  </li>
+                )}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    variant="outlined"
+                    placeholder="Where would you like to live?"
+                    //   InputProps={{ className: "textfield__label" }}
+                  />
+                )}
               />
-              {option.label}
-            </li>
-          )}
-          renderInput={(params) => (
-            <TextField {...params} variant="outlined" placeholder="Suburb" />
-          )}
-        />
+            </div>
+          </div>
+        </ThemeProvider>
       </ThemeProvider>
     </div>
   );
