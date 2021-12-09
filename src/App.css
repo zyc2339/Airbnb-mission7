@@ -232,27 +232,27 @@ hr {
   border-radius: 20px;
   padding: 0.1rem;
 }
-.display_response{
+.display_response {
   display: grid;
-  grid-template-columns: auto auto ;
+  grid-template-columns: auto auto;
   grid-gap: 10px;
-  padding: 10px;
 }
-.filterpgwhole{
-  display:flex
-}
-.filterbarwhole{
-  display:flex
-}
-.cardicons{
+.filterpgwhole {
   display: flex;
 }
-.bedbathparkicons{
+.filterbarwhole {
+  display: flex;
+}
+.cardicons {
+  display: flex;
+}
+.bedbathparkicons {
   padding-right: 25px;
 }
-.map{
-  width:1200px;
-  margin-left:200px;
+.map {
+  max-width: 1500px;
+
+  margin-left: 20px;
 }
 .map-container {
   width: 100%;
@@ -270,7 +270,7 @@ hr {
 
 .marker:before,
 .marker:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -351,8 +351,73 @@ hr {
   font-family: "Roboto", sans-serif;
 }
 
-/* ========mui  ======= */
-.theme-background {
-  background-color: rgb(186, 138, 231);
-  height: 1000px;
+/* ===========2nd filter page============================ */
+
+.filterpgwhole {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterbarwhole {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-filter-container.filterPage {
+  margin-left: 1rem;
+}
+
+.filter-img-logo {
+  margin-top: 0.7rem;
+  margin-left: 1.5rem;
+}
+.filter-img-login {
+  justify-self: flex-end;
+}
+.filter-search {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+
+  color: aliceblue;
+  background-color: #c12141;
+  font-family: "Roboto", sans-serif;
+}
+
+.popular {
+  margin-right: 3rem;
+  width: 3rem;
+  padding: 0.1rem 1.5rem;
+  height: 2.5rem;
+  color: #818181;
+  border-left: solid 4px #cdced1;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.filter-btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 33rem;
+}
+.filter-btn-group button {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0.5rem 0.5rem;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.filter-show-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 2rem 2rem;
 }

@@ -16,8 +16,9 @@ import PetsIcon from "@mui/icons-material/Pets";
 import ParkIcon from "@mui/icons-material/Park";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { theme } from "../HomePage/theme";
+import { theme2 } from "./themeForFilterPage";
 import Mapbox from "../GenerateMap";
+import { Link } from "react-router-dom";
 
 import Footer from "../Footer";
 
@@ -107,131 +108,136 @@ export default function Mainfilter() {
 
   return (
     <div className="filterpgwhole">
-      <div className="filterbarwhole">
-        <div>
-          <ThemeProvider theme={theme}>
-            <div className="home-filter">
-              <div className="home-filter-container">
-                <Autocomplete
-                  multiple
-                  size="small"
-                  id="filter-checkboxes-suburb"
-                  options={suburb}
-                  disableCloseOnSelect
-                  limitTags={3}
-                  onChange={handleSuburbChange}
-                  PopperComponent={PopperMy}
-                  ListboxComponent={ListSuburb}
-                  renderTags={() => null}
-                  getOptionLabel={(option) => option.label}
-                  renderOption={(props, option, { selected }) => (
-                    <li {...props}>
-                      <Checkbox style={{ marginRight: 8 }} checked={selected} />
-                      {option.label}
-                    </li>
-                  )}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      color="primary"
-                      style={{ width: "16rem" }}
-                      variant="outlined"
-                      placeholder="Where would you like to live?"
-                    />
-                  )}
-                />
+      <div>
+        <div className="filterbarwhole">
+          <ThemeProvider theme={theme2}>
+            <Link className="link" to="/">
+              <img
+                src="image/icon/page2logo.png"
+                className="filter-img-logo"
+                alt="logo"
+              />
+            </Link>
+            <div className="home-filter-container filterPage">
+              <Autocomplete
+                multiple
+                size="small"
+                id="filter-checkboxes-suburb"
+                options={suburb}
+                disableCloseOnSelect
+                limitTags={3}
+                onChange={handleSuburbChange}
+                PopperComponent={PopperMy}
+                ListboxComponent={ListSuburb}
+                renderTags={() => null}
+                getOptionLabel={(option) => option.label}
+                renderOption={(props, option, { selected }) => (
+                  <li {...props}>
+                    <Checkbox style={{ marginRight: 8 }} checked={selected} />
+                    {option.label}
+                  </li>
+                )}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    style={{
+                      width: "8rem",
+                    }}
+                    variant="outlined"
+                    placeholder="Suburb"
+                  />
+                )}
+              />
 
-                <Autocomplete
-                  multiple
-                  size="small"
-                  id="filter-checkboxes-suburb"
-                  options={price}
-                  limitTags={1}
-                  disableCloseOnSelect
-                  PopperComponent={PopperMy}
-                  ListboxComponent={ListOther}
-                  getOptionLabel={(option) => option.label}
-                  renderTags={() => null}
-                  renderOption={(props, option, { selected }) => (
-                    <li {...props}>
-                      <Checkbox style={{ marginRight: 8 }} checked={selected} />
-                      {option.label}
-                    </li>
-                  )}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      style={{
-                        width: "8rem",
-                        borderLeft: "rgb(143, 139, 139) solid 2px",
-                      }}
-                      variant="outlined"
-                      placeholder="Price"
-                    />
-                  )}
-                />
+              <Autocomplete
+                multiple
+                size="small"
+                id="filter-checkboxes-suburb"
+                options={price}
+                limitTags={1}
+                disableCloseOnSelect
+                PopperComponent={PopperMy}
+                ListboxComponent={ListOther}
+                getOptionLabel={(option) => option.label}
+                renderTags={() => null}
+                renderOption={(props, option, { selected }) => (
+                  <li {...props}>
+                    <Checkbox style={{ marginRight: 8 }} checked={selected} />
+                    {option.label}
+                  </li>
+                )}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    style={{
+                      width: "8rem",
+                    }}
+                    variant="outlined"
+                    placeholder="Price"
+                  />
+                )}
+              />
 
-                <Autocomplete
-                  multiple
-                  size="small"
-                  id="filter-checkboxes-suburb"
-                  options={homeType}
-                  limitTags={1}
-                  disableCloseOnSelect
-                  PopperComponent={PopperMy}
-                  ListboxComponent={ListOther}
-                  getOptionLabel={(option) => option.label}
-                  renderTags={() => null}
-                  renderOption={(props, option, { selected }) => (
-                    <li {...props}>
-                      <Checkbox style={{ marginRight: 8 }} checked={selected} />
-                      {option.label}
-                    </li>
-                  )}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      style={{
-                        width: "8rem",
-                        borderLeft: "rgb(143, 139, 139) solid 2px",
-                      }}
-                      variant="outlined"
-                      placeholder="Home Type"
-                    />
-                  )}
-                />
+              <Autocomplete
+                multiple
+                size="small"
+                id="filter-checkboxes-suburb"
+                options={homeType}
+                limitTags={1}
+                disableCloseOnSelect
+                PopperComponent={PopperMy}
+                ListboxComponent={ListOther}
+                getOptionLabel={(option) => option.label}
+                renderTags={() => null}
+                renderOption={(props, option, { selected }) => (
+                  <li {...props}>
+                    <Checkbox style={{ marginRight: 8 }} checked={selected} />
+                    {option.label}
+                  </li>
+                )}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    style={{
+                      width: "8rem",
+                    }}
+                    variant="outlined"
+                    placeholder="Home Type"
+                  />
+                )}
+              />
 
-                <Autocomplete
-                  multiple
-                  size="small"
-                  id="filter-checkboxes-suburb"
-                  options={price}
-                  limitTags={1}
-                  disableCloseOnSelect
-                  PopperComponent={PopperMy}
-                  ListboxComponent={ListOther}
-                  getOptionLabel={(option) => option.label}
-                  renderTags={() => null}
-                  renderOption={(props, option, { selected }) => (
-                    <li {...props}>
-                      <Checkbox style={{ marginRight: 8 }} checked={selected} />
-                      {option.label}
-                    </li>
-                  )}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      style={{
-                        width: "8rem",
-                        borderLeft: "rgb(143, 139, 139) solid 2px",
-                      }}
-                      variant="outlined"
-                      placeholder="Bed & Bath"
-                    />
-                  )}
-                />
+              <Autocomplete
+                multiple
+                size="small"
+                id="filter-checkboxes-suburb"
+                options={price}
+                limitTags={1}
+                disableCloseOnSelect
+                PopperComponent={PopperMy}
+                ListboxComponent={ListOther}
+                getOptionLabel={(option) => option.label}
+                renderTags={() => null}
+                renderOption={(props, option, { selected }) => (
+                  <li {...props}>
+                    <Checkbox style={{ marginRight: 8 }} checked={selected} />
+                    {option.label}
+                  </li>
+                )}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    style={{
+                      width: "8rem",
+                      // borderRight: "solid 4px #cdced1",
+                    }}
+                    variant="outlined"
+                    placeholder="Bed & Bath"
+                  />
+                )}
+              />
 
-                <Autocomplete
+              {/* <Autocomplete
                   multiple
                   size="small"
                   id="filter-checkboxes-suburb"
@@ -252,69 +258,115 @@ export default function Mainfilter() {
                     <TextField
                       {...params}
                       style={{
+                        backgroundColor: "white",
                         width: "6rem",
-                        borderLeft: "rgb(143, 139, 139) solid 2px",
                       }}
                       variant="outlined"
                       placeholder="More"
                     />
                   )}
-                />
+                /> */}
 
-                <button className="btn btn-search" onClick={searchOnClick}>
-                  Search
-                </button>
+              <button className="btn filter-search" onClick={searchOnClick}>
+                Search
+              </button>
+
+              <p className="popular">Popular Filters</p>
+              <div className="filter-btn-group">
+                <button>Furnished</button>
+                <button>Parking</button>
+                <button>Washer</button>
+                <button>A/C</button>
+                <button>Pet Friendly</button>
+                <button>More</button>
+                <button>Sort</button>
               </div>
             </div>
+            <img
+              src="image/icon/PAGE2login.png"
+              className="filter-img-login"
+              alt="user"
+            />
           </ThemeProvider>
-
+        </div>
+        <hr
+          style={{
+            border: "2px solid #c12141",
+            backgroundColor: "#c12141",
+            width: "96.5%",
+            marginTop: "0.8rem",
+            marginBottom: "3rem",
+          }}
+        ></hr>
+        <div className="filter-show-container">
           <div className="display_response">
             {searchData.map((response) => (
               <div className="each_resp">
-                <Card sx={{ maxWidth: 270 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={response.image}
-                      alt="green iguana"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
+                <ThemeProvider theme={theme2}>
+                  <Card
+                    sx={{ maxWidth: 320 }}
+                    style={{ marginBottom: "1.5rem" }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={response.image}
+                        alt="green iguana"
+                      />
+                      <CardContent>
+                        <Typography>{response.address}</Typography>
+                        <Typography
+                          style={{ fontWeight: "bold", display: "flex" }}
+                        >
+                          {response.price} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          {response.home_type}
+                        </Typography>
+                      </CardContent>
+                      <div
+                        className="cardicons"
+                        style={{
+                          paddingLeft: "0.5rem",
+                          paddingRight: "0.5rem",
+                        }}
+                      >
+                        <div className="bedbathparkicons">
+                          <BedIcon />
+                          {response.bed}
+                          <BathtubIcon />
+                          {response.bath}
+                          <DirectionsCarIcon />
+                          {response.park}
+                        </div>
+                        <div>
+                          <PetsIcon />
+                          {response.pet}
+                          <ShoppingCartIcon />
+                          {response.shop}
+                          <ParkIcon />
+                          {response.tree}
+                          <RestaurantIcon />
+                          {response.food}
+                        </div>
+                      </div>
+                      <Typography
+                        gutterBottom
+                        variant="h6"
+                        component="div"
+                        style={{ padding: "0.5rem", fontWeight: "bold" }}
+                      >
                         {response.suburb}
                       </Typography>
-                      <Typography>{response.address}</Typography>
-                      <Typography>{response.price}</Typography>
-                      <Typography>{response.home_type}</Typography>
-                    </CardContent>
-                    <div className="cardicons">
-                      <div className="bedbathparkicons">
-                        <BedIcon />
-                        {response.bed}
-                        <BathtubIcon />
-                        {response.bath}
-                        <DirectionsCarIcon />
-                        {response.park}
-                      </div>
-                      <div>
-                        <PetsIcon />
-                        {response.pet}
-                        <ShoppingCartIcon />
-                        {response.shop}
-                        <ParkIcon />
-                        {response.tree}
-                        <RestaurantIcon />
-                        {response.food}
-                      </div>
-                    </div>
-                  </CardActionArea>
-                </Card>
+                    </CardActionArea>
+                  </Card>
+                </ThemeProvider>
               </div>
             ))}
           </div>
-        </div>
-        <div className="map">
-          <Mapbox />
+
+          <div className="map">
+            <Mapbox />
+          </div>
         </div>
       </div>
       <Footer />

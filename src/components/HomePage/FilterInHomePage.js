@@ -246,11 +246,11 @@ export default function FilterInHomePage(props) {
             )}
           />
 
-          {/* <Link className="link" to="/find"> */}
-          <button className="btn btn-search" onClick={searchOnClick}>
-            Search
-          </button>
-          {/* </Link> */}
+          <Link className="link" to="/find">
+            <button className="btn btn-search" onClick={searchOnClick}>
+              Search
+            </button>
+          </Link>
         </div>
       </div>
     </ThemeProvider>
