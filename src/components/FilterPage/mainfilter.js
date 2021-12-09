@@ -23,8 +23,9 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import Mapbox from '../GenerateMap';
-
+import FilterInHomePage from "../HomePage/FilterInHomePage.js";
 import Footer from '../Footer'
+import Header from '../Header'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -148,6 +149,8 @@ export default function Mainfilter() {
 
   return (
     <div >
+      <Header />
+      <FilterInHomePage />
       <div className="filterpgwhole">
       <div>
       <div className="filterbarwhole">
