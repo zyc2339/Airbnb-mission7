@@ -2,7 +2,7 @@ import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { Popper, Card } from "@mui/material";
-import { suburb, price, homeType, more } from "../HomePage/FilterOption";
+import { suburb, price, homeType } from "../HomePage/FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import CardContent from "@mui/material/CardContent";
@@ -16,10 +16,11 @@ import PetsIcon from "@mui/icons-material/Pets";
 import ParkIcon from "@mui/icons-material/Park";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { theme2 } from "./themeForFilterPage";
-import Mapbox from "../GenerateMap";
+
 import { Link } from "react-router-dom";
 
+import { theme2 } from "./themeForFilterPage";
+import Mapbox from "../GenerateMap";
 import Footer from "../Footer";
 
 const PopperMy = function (props) {
@@ -237,36 +238,6 @@ export default function Mainfilter() {
                 )}
               />
 
-              {/* <Autocomplete
-                  multiple
-                  size="small"
-                  id="filter-checkboxes-suburb"
-                  options={more}
-                  disableCloseOnSelect
-                  limitTags={1}
-                  PopperComponent={PopperMy}
-                  ListboxComponent={ListOther}
-                  getOptionLabel={(option) => option.label}
-                  renderTags={() => null}
-                  renderOption={(props, option, { selected }) => (
-                    <li {...props}>
-                      <Checkbox style={{ marginRight: 8 }} checked={selected} />
-                      {option.label}
-                    </li>
-                  )}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      style={{
-                        backgroundColor: "white",
-                        width: "6rem",
-                      }}
-                      variant="outlined"
-                      placeholder="More"
-                    />
-                  )}
-                /> */}
-
               <button className="btn filter-search" onClick={searchOnClick}>
                 Search
               </button>
@@ -369,6 +340,7 @@ export default function Mainfilter() {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
