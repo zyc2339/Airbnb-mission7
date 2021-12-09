@@ -1,14 +1,3 @@
-import Checkbox from "@mui/material/Checkbox";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import { Popper, Card } from "@mui/material";
-import { suburb, price, homeType } from "../HomePage/FilterOption";
-import { ThemeProvider } from "@mui/material/styles";
-import { useState, useEffect } from "react";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
 import BedIcon from "@mui/icons-material/Bed";
 import BathtubIcon from "@mui/icons-material/Bathtub";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
@@ -16,13 +5,25 @@ import PetsIcon from "@mui/icons-material/Pets";
 import ParkIcon from "@mui/icons-material/Park";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
+import { ThemeProvider } from "@mui/material/styles";
+import {
+  CardMedia,
+  Popper,
+  Card,
+  Autocomplete,
+  TextField,
+  Checkbox,
+  CardActionArea,
+  Typography,
+  CardContent,
+} from "@mui/material";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import { theme2 } from "./themeForFilterPage";
 import Mapbox from "../GenerateMap";
 import Footer from "../Footer";
-
+import { suburb, price, homeType } from "../HomePage/FilterOption";
 const PopperMy = function (props) {
   return <Popper {...props} style={{ width: 228, height: 380 }} />;
 };
@@ -50,9 +51,11 @@ const ListOther = function (props) {
 };
 export default function Mainfilter() {
   const [suburbArray, setSuburbArray] = useState([]);
+  const [homeTypeArray, setHomeTypeArray] = useState([]);
   const [backendData, setBackendData] = useState([]);
-  const [filteredSuburbData, setFilteredSuburbData] = useState([]);
   const [searchData, setSearchData] = useState([]);
+  const [filteredSuburbData, setFilteredSuburbData] = useState([]);
+  const [filteredHomTypeData, setFilteredHomeTypeData] = useState([]);
 
   const handleSuburbChange = (event, value) => {
     setSuburbArray(Array.from(value, (x) => x.label));
@@ -85,8 +88,40 @@ export default function Mainfilter() {
     }
   };
 
+  const handleHomeTypeChange = (event, value) => {
+    setHomeTypeArray(Array.from(value, (x) => x.label));
+
+    if (Array.from(value, (x) => x.label).includes("Apartment")) {
+      setFilteredHomeTypeData(
+        backendData.filter((listing) => listing.home_type === "Apartment")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("House")) {
+      setFilteredHomeTypeData(
+        backendData.filter((listing) => listing.home_type === "House")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Units")) {
+      setFilteredHomeTypeData(
+        backendData.filter((listing) => listing.home_type === "Units")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Duplex")) {
+      setFilteredHomeTypeData(
+        backendData.filter((listing) => listing.home_type === "Duplex")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Terraced Homes")) {
+      setFilteredHomeTypeData(
+        backendData.filter((listing) => listing.home_type === "Terraced Homes")
+      );
+    }
+  };
+
   const searchOnClick = () => {
-    setSearchData(filteredSuburbData.concat(searchData));
+    if (suburbArray.length === 0 && homeTypeArray.length === 0) {
+      setSearchData(backendData);
+    } else if (suburbArray.length !== 0 && homeTypeArray.length === 0) {
+      setSearchData(filteredSuburbData.concat(searchData));
+    } else if (homeTypeArray.length !== 0 && suburbArray.length === 0) {
+      setSearchData(filteredHomTypeData.concat(searchData));
+    }
   };
 
   useEffect(() => {
@@ -105,6 +140,10 @@ export default function Mainfilter() {
   useEffect(() => {
     console.log(filteredSuburbData);
     console.log(suburbArray);
+    console.log(backendData);
+    console.log(searchData);
+    console.log(homeTypeArray);
+    console.log(filteredHomTypeData);
   });
 
   return (
@@ -186,6 +225,7 @@ export default function Mainfilter() {
                 options={homeType}
                 limitTags={1}
                 disableCloseOnSelect
+                onChange={handleHomeTypeChange}
                 PopperComponent={PopperMy}
                 ListboxComponent={ListOther}
                 getOptionLabel={(option) => option.label}

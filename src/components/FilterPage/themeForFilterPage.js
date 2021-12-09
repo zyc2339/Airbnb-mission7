@@ -22,6 +22,8 @@ export const theme2 = createTheme({
           fontFamily: font,
           maxHeight: "15rem",
           color: "white",
+          backgroundColor: "#6f747b",
+
           //   borderRight: "1px solid black",
         },
       },
@@ -64,10 +66,9 @@ export const theme2 = createTheme({
         input: {
           fontWeight: "bold",
           paddingLeft: "1rem",
-          backgroundColor: "#6f747b",
-          height: "2rem",
+          opacity: 1,
+          height: "1.3rem",
           fontSize: "0.8rem",
-          borderRadius: "10px",
         },
       },
     },

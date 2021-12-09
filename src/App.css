@@ -368,11 +368,15 @@ hr {
 
 .home-filter-container.filterPage {
   margin-left: 1rem;
+  min-width: 78rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .filter-img-logo {
   margin-top: 0.7rem;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 .filter-img-login {
   justify-self: flex-end;
@@ -390,7 +394,7 @@ hr {
 
 .popular {
   margin-right: 3rem;
-  width: 3rem;
+  width: 2rem;
   padding: 0.1rem 1.5rem;
   height: 2.5rem;
   color: #818181;
@@ -420,4 +424,9 @@ hr {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0 2rem 2rem;
+}
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+
+  opacity: 1 !important;
 }

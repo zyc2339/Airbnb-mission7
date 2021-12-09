@@ -20,10 +20,10 @@ const price = [
 ];
 const homeType = [
   { label: "Any Type", value: 1 },
-  { label: "Houses", value: 2 },
+  { label: "House", value: 2 },
   { label: "Apartments", value: 3 },
   { label: "Terraced Homes", value: 4 },
-  { label: "Unit", value: 5 },
+  { label: "Units", value: 5 },
   { label: "Duplexes", value: 6 },
 ];
 const more = [
