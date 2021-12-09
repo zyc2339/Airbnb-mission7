@@ -1,9 +1,6 @@
 import Header from "../Header";
 import Footer from "../Footer";
-
-// import { useState } from "react";
 import ImageCard from "./ImageCard";
-
 import FilterInHomePage from "./FilterInHomePage";
 
 export default function Home() {
