@@ -66,6 +66,7 @@ export default function Mainfilter() {
 
     console.log(event);
     console.log(value);
+    console.log(suburb);
     setsuburb(
       // On autofill we get a the stringified value.
       typeof value === "string" ? value.split(",") : value

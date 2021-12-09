@@ -6,7 +6,7 @@ import { theme } from "./theme";
 import { suburb, price, homeType, more } from "./FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-// import { useState } from "react";
+import { React, useState, useEffect } from "react";
 
 const PopperMy = function (props) {
   return <Popper {...props} style={{ width: 228, height: 380 }} />;
@@ -35,58 +35,66 @@ const ListOther = function (props) {
 };
 
 export default function FilterInHomePage() {
-<<<<<<< HEAD
-  // const [value, setValue] = useState([]);
+  const [suburbArray, setSuburbArray] = useState([]);
+  const [backendData, setBackendData] = useState([]);
+  const [filteredSuburbData, setFilteredSuburbData] = useState([]);
+  const [searchData, setSearchData] = useState([]);
 
-  const [suburbValue, setsuburb] = useState([]);
+  const handleSuburbChange = (event, value) => {
+    setSuburbArray(Array.from(value, (x) => x.label));
+    // getBackendResult();
 
-  const [backendresult, setbackendresult] = useState([]);
-
-  const [filteredresult, setfilteredresult] = useState([]);
-
-  const [finalresult, setfinalresult] = useState([]);
-
-  const handleChangeSuburb = (event) => {
-    // (e) => console.log(e.target.value)
-    const {
-      target: { value },
-    } = event;
-
-    console.log(value);
-    setsuburb(
-      // On autofill we get a the stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-    console.log(suburbValue);
-
-    if (event.target.value.includes("Albany")) {
-      setfilteredresult(
-        backendresult.filter((listing) => listing.suburb === "Albany")
+    if (Array.from(value, (x) => x.label).includes("Albany")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Albany")
       );
-    } else if (event.target.value.includes("Epsom")) {
-      setfilteredresult(
-        backendresult.filter((listing) => listing.suburb === "Epsom")
+    } else if (Array.from(value, (x) => x.label).includes("Epsom")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Epsom")
       );
-    } else if (event.target.value.includes("Parnell")) {
-      setfilteredresult(
-        backendresult.filter((listing) => listing.suburb === "Parnell")
+    } else if (Array.from(value, (x) => x.label).includes("Parnell")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Parnell")
       );
-    } else if (event.target.value.includes("CBD")) {
-      setfilteredresult(
-        backendresult.filter((listing) => listing.suburb === "CBD")
+    } else if (Array.from(value, (x) => x.label).includes("CBD")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "CBD")
       );
-    } else if (event.target.value.includes("Howick")) {
-      setfilteredresult(
-        backendresult.filter((listing) => listing.suburb === "Howick")
+    } else if (Array.from(value, (x) => x.label).includes("Howick")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Howick")
       );
-    } else if (event.target.value.includes("Flat Bush")) {
-      setfilteredresult(
-        backendresult.filter((listing) => listing.suburb === "Flat Bush")
+    } else if (Array.from(value, (x) => x.label).includes("Flat Bush")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Flat Bush")
       );
     }
   };
-=======
->>>>>>> main
+
+  const searchOnClick = () => {
+    setSearchData(filteredSuburbData.concat(searchData));
+  };
+
+  useEffect(() => {
+    fetch("https://sleepy-brook-55036.herokuapp.com/results", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      // Converting to JSON
+      .then((response) => response.json())
+      .then((json) => {
+        setBackendData(json);
+      });
+  }, []);
+  useEffect(() => {
+    console.log(filteredSuburbData);
+    console.log(suburbArray);
+    console.log();
+    console.log(searchData);
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <div className="home-filter">
@@ -98,19 +106,14 @@ export default function FilterInHomePage() {
             options={suburb}
             disableCloseOnSelect
             limitTags={3}
-            value={suburbValue}
-            onChange={handleChangeSuburb}
+            onChange={handleSuburbChange}
             PopperComponent={PopperMy}
             ListboxComponent={ListSuburb}
             renderTags={() => null}
             getOptionLabel={(option) => option.label}
             renderOption={(props, option, { selected }) => (
               <li {...props}>
-                <Checkbox
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                  value={option.label}
-                />
+                <Checkbox style={{ marginRight: 8 }} checked={selected} />
                 {option.label}
               </li>
             )}
@@ -245,9 +248,20 @@ export default function FilterInHomePage() {
             )}
           />
 
-          <Link className="link" to="/find">
-            <button className="btn btn-search">Search</button>
-          </Link>
+          {/* <Link className="link" to="/find"> */}
+          <button className="btn btn-search" onClick={searchOnClick}>
+            Search
+          </button>
+          {/* </Link> */}
+          <div className="display_response">
+            {searchData.map((response) => (
+              <div className="each_resp">
+                <p>{response._id}</p>
+                <p>{response.suburb}</p>
+                <p>{response.home_type}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </ThemeProvider>
