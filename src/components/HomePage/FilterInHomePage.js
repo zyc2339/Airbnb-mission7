@@ -6,7 +6,7 @@ import { theme } from "./theme";
 import { suburb, price, homeType, more } from "./FilterOption";
 import { ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-// import { useState } from "react";
+import { React, useState, useEffect } from "react";
 
 const PopperMy = function (props) {
   return <Popper {...props} style={{ width: 228, height: 380 }} />;
@@ -34,7 +34,65 @@ const ListOther = function (props) {
   );
 };
 
-export default function FilterInHomePage() {
+export default function FilterInHomePage(props) {
+  const [suburbArray, setSuburbArray] = useState([]);
+  const [backendData, setBackendData] = useState([]);
+  const [filteredSuburbData, setFilteredSuburbData] = useState([]);
+  const [searchData, setSearchData] = useState([]);
+
+  const handleSuburbChange = (event, value) => {
+    setSuburbArray(Array.from(value, (x) => x.label));
+    // getBackendResult();
+
+    if (Array.from(value, (x) => x.label).includes("Albany")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Albany")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Epsom")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Epsom")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Parnell")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Parnell")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("CBD")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "CBD")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Howick")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Howick")
+      );
+    } else if (Array.from(value, (x) => x.label).includes("Flat Bush")) {
+      setFilteredSuburbData(
+        backendData.filter((listing) => listing.suburb === "Flat Bush")
+      );
+    }
+  };
+
+  const searchOnClick = () => {
+    setSearchData(filteredSuburbData.concat(searchData));
+  };
+
+  useEffect(() => {
+    fetch("https://sleepy-brook-55036.herokuapp.com/results", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      // Converting to JSON
+      .then((response) => response.json())
+      .then((json) => {
+        setBackendData(json);
+      });
+  }, []);
+  useEffect(() => {
+    console.log(filteredSuburbData);
+    console.log(suburbArray);
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <div className="home-filter">
@@ -46,6 +104,7 @@ export default function FilterInHomePage() {
             options={suburb}
             disableCloseOnSelect
             limitTags={3}
+            onChange={handleSuburbChange}
             PopperComponent={PopperMy}
             ListboxComponent={ListSuburb}
             renderTags={() => null}
@@ -188,7 +247,9 @@ export default function FilterInHomePage() {
           />
 
           <Link className="link" to="/find">
-            <button className="btn btn-search">Search</button>
+          <button className="btn btn-search" onClick={searchOnClick}>
+            Search
+          </button>
           </Link>
         </div>
       </div>
