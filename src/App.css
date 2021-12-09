@@ -227,3 +227,73 @@ hr {
   border-radius: 20px;
   padding: 0.1rem;
 }
+.display_response{
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-gap: 10px;
+  padding: 10px;
+}
+.filterpgwhole{
+  display:flex
+}
+.filterbarwhole{
+  display:flex
+}
+.cardicons{
+  display: flex;
+}
+.bedbathparkicons{
+  padding-right: 25px;
+}
+.map{
+  width:1200px;
+  margin-left:200px;
+}
+.map-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 5px;
+}
+/* Marker */
+.marker {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.marker:before,
+.marker:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid blue;
+  border-radius: 50%;
+}
+
+.marker:before {
+  animation: ripple 2s linear infinite;
+}
+
+.marker:after {
+  animation: ripple 2s linear 1s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}

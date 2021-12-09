@@ -9,6 +9,22 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import BedIcon from '@mui/icons-material/Bed';
+import BathtubIcon from '@mui/icons-material/Bathtub';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import PetsIcon from '@mui/icons-material/Pets';
+import ParkIcon from '@mui/icons-material/Park';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+import Mapbox from '../GenerateMap';
+
+import Footer from '../Footer'
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -131,7 +147,10 @@ export default function Mainfilter() {
   });
 
   return (
-    <div>
+    <div >
+      <div className="filterpgwhole">
+      <div>
+      <div className="filterbarwhole">
       <div>
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="demo-multiple-checkbox-label">Suburbs</InputLabel>
@@ -178,12 +197,8 @@ export default function Mainfilter() {
         </FormControl>
       </div>
 
-      <Button variant="contained" onClick={finalarray}>
-        Search
-      </Button>
-
       <div>
-        <Box sx={{ width: 300 }}>
+        <Box sx={{ width: 250 }}>
           <Slider
             value={slidervalue}
             onChange={handleChangeSlide}
@@ -193,15 +208,62 @@ export default function Mainfilter() {
         </Box>
       </div>
 
+      <Button variant="contained" onClick={finalarray} sx={{height:35}}>
+        Search
+      </Button>
+      </div>        
       <div className="display_response">
         {finalresult.map((response) => (
           <div className="each_resp">
-            <p>{response._id}</p>
-            <p>{response.suburb}</p>
-            <p>{response.home_type}</p>
+            <Card sx={{ maxWidth: 270 }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="140"
+                image={response.image}
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {response.suburb}
+                </Typography>
+                <Typography>
+                  {response.address}
+                </Typography>
+                <Typography>
+                  {response.price}
+                </Typography>
+                <Typography>
+                  {response.home_type}
+                </Typography>
+              </CardContent>
+              <div className="cardicons">
+              <div className="bedbathparkicons">
+              <BedIcon />{response.bed}
+              <BathtubIcon />{response.bath}
+              <DirectionsCarIcon />{response.park}
+              </div>
+              <div>
+              
+              <PetsIcon />{response.pet}
+              <ShoppingCartIcon />{response.shop}
+              <ParkIcon />{response.tree}
+              <RestaurantIcon />{response.food}
+              
+              </div>
+              </div>
+            </CardActionArea>  
+            </Card>
           </div>
         ))}
       </div>
+      </div>
+      <div className="map">
+      <Mapbox />
+      </div>
+      
+    </div>
+    <Footer />
     </div>
   );
 }

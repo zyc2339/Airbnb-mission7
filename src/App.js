@@ -2,6 +2,7 @@ import "./App.css";
 import Home from "./components/HomePage/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Mainfilter from "./components/FilterPage/mainfilter";
+require('dotenv').config()
 function App() {
   return (
     <div className="App">
